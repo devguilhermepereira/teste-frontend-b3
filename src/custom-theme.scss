@@ -1,0 +1,101 @@
+$laranjaLimber:#e65100;
+$laranja1Limber:#ff803a;
+$cinzaLimber: #333333;
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+$secondary-orange-palette: (
+  50 : #fff0e7,
+  100 : #ffd9c4,
+  200 : #ffc09d,
+  300 : #ffa675,
+  400 : #ff9358,
+  500 : #ff803a,
+  600 : #ff7834,
+  700 : #ff6d2c,
+  800 : #ff6325,
+  900 : #ff5018,
+  A100 : #ffffff,
+  A200 : #fffefd,
+  A400 : #ffd5ca,
+  A700 : #ffc1b1,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$primary-orange-palette: (
+  50 : #fceae0,
+  100 : #f8cbb3,
+  200 : #f3a880,
+  300 : #ee854d,
+  400 : #ea6b26,
+  500 : #e65100,
+  600 : #e34a00,
+  700 : #df4000,
+  800 : #db3700,
+  900 : #d52700,
+  A100 : #fffdfc,
+  A200 : #ffd0c9,
+  A400 : #ffa396,
+  A700 : #ff8d7d,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$cardapio-digital-primary: mat.define-palette($primary-orange-palette);
+$cardapio-digital-accent: mat.define-palette($secondary-orange-palette);
+
+// The warn palette is optional (defaults to red).
+$cardapio-digital-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$cardapio-digital-theme: mat.define-light-theme((
+  color: (
+    primary: $cardapio-digital-primary,
+    accent: $cardapio-digital-accent,
+    warn: $cardapio-digital-warn,
+
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($cardapio-digital-theme);
+

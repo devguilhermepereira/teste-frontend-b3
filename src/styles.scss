@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+$laranjaLimber500: #ff833a;
+$roxoLimber500: #ff803a;
+$laranjaLimber: #e65100;
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4c4c4;
+}
+
+html,
+body {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  height: 100%;
+}
+
+html,
+body,
+mat-card,
+.mat-body,
+button,
+.mat-radio-button .mat-bottom-sheet-container,
+span,
+.mat-tab-group,
+.mat-tab-label,
+.mat-tab-link,
+.mat-expansion-panel-content,
+.mat-stepper-vertical,
+.mat-stepper-horizontal {
+  font-family: Poppins, serif !important;
+}
+
+.mat-body,
+.mat-body-1,
+.mat-typography .mat-body,
+.mat-typography .mat-body-1,
+.mat-typography,
+.mat-content {
+  font-family: Poppins, serif !important;
+}
+
+body {
+  margin: 0;
+  user-select: none;
+}
+
+.margin-auto {
+  margin: auto !important;
+}
+
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
+
+.color-orange-limber {
+  color: $laranjaLimber;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.width-100 {
+  width: 100% !important;
+}

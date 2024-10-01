@@ -1,0 +1,54 @@
+footer {
+    border-top: 1px solid #c4c4c4;
+  }
+  
+  img {
+    max-height: 50px;
+    max-width: 50px;
+  }
+  
+  .minimal-font {
+    font-size: 12px;
+    width: 100%;
+    line-height: 1.35;
+    font-weight: 300;
+    color: #717171;
+  }
+  
+  .text-links {
+    text-align: center;
+    color: #787878;
+    font-weight: 500;
+  }
+  
+  a {
+    cursor: pointer;
+  }
+  
+  .show-cookies {
+    margin-bottom: 80px;
+  }
+  
+  .fot-height {
+    height: 60px;
+    padding: 16px;
+  }
+  
+  @media (max-width: 959px) {
+    .fot-height {
+      height: 120px;
+      padding: 16px;
+    }
+    .show-cookies {
+      margin-bottom: 120px;
+    }
+  }
+  
+  .version {
+    position: absolute;
+    bottom: 0;
+    right: 2px;
+    font-size: 10px;
+    line-height: 15px;
+  }
+  

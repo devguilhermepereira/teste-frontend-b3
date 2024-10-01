@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12 col-sm-12 mb-3">
+            <mat-card appearance="outlined">
+                <mat-card-header>
+                    <mat-card-title>Cotação do dolar(em REAL)</mat-card-title>
+                    <mat-card-subtitle>
+                        Data da ultima consulta {{ data.create_date | date: 'MMM d, y, h:mm:ss a'}} <br>
+                        referencia - https://docs.awesomeapi.com.br/api-de-moedas
+                    </mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+
+
+                    <div class="row mt-5">
+                        <div class="col-6 col-md-6 col-sm-12 mb-3">
+                            <mat-card>
+                                Menor valor {{data.low | currency: 'R$'}}
+                                <br> <br>
+                                Maior valor {{data.high | currency: 'R$'}}
+                            </mat-card>
+                        </div>
+                        <div class="col-5 col-md-6 col-sm-12 mb-3">
+                            <mat-card>
+                                Oferta Atual {{data.bid | currency: 'R$'}}
+                            </mat-card>
+                        </div>
+
+                    </div>
+
+
+                </mat-card-content>
+
+                <mat-card-actions>
+
+                </mat-card-actions>
+            </mat-card>
+            <br>
+        </div>
+    </div>
+</div>

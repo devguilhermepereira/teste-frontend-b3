@@ -1,0 +1,69 @@
+<div *ngIf="!loading" class="grid-container-pagetitle mt-3">
+    <h1 class="mat-h1">Lançamentos</h1>
+    <div class="row mt-5 mb-3">
+        <div class="col-md-5 col-sm-12 col-lg-5">
+            <mat-form-field appearance="fill">
+                <mat-label>Nome/Descrição</mat-label>
+                <input matInput [(ngModel)]="newData.title" placeholder="Ex: Financiamento do Carro">
+            </mat-form-field>
+        </div>
+        <div class="col-md-2 col-sm-12 col-lg-2">
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Valor</mat-label>
+                <input matInput [(ngModel)]="newData.value" type="number" placeholder="0">
+                <span matPrefix>R$&nbsp;</span>
+            </mat-form-field>
+        </div>
+        <div class="col-md-2 col-sm-12 col-lg-2">
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Valor da Parcela</mat-label>
+                <select matNativeControl required [(ngModel)]="newData.type">
+                    <option value="E">Entrada</option>
+                    <option value="S">Saída</option>
+                </select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12 col-sm-12 text-end">
+            <button mat-flat-button color="accent" (click)="save()">CADASTRAR</button>
+        </div>
+        <div class="col-md-12 col-sm-12 col-lg-12 mt-5 mb-5">
+            <mat-form-field appearance="standard">
+                <mat-label>buscar</mat-label>
+                <input matInput (keyup)="applyFilter($event)" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+                    <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> Descrição</th>
+                        <td mat-cell *matCellDef="let element"> {{(element.title.toUpperCase())}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="valueE">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="valueE"> Valor R$</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{ element.type === 'E' ? (element.value | currency:'R$') : '-'}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="valueS">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="valueS"> Valor R$</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{ element.type === 'S' ? (element.value | currency:'R$') : '-'}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="type"> Tipo do lançamento</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{ element.type === 'E' ? 'Entrada' : 'Saída'}}
+                        </td>
+                        <td mat-footer-cell *matFooterCellDef></td>
+                    </ng-container>
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">Nenhum dado correspondente ao filtro "{{input.value}}"</td>
+                    </tr>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

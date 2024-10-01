@@ -1,0 +1,63 @@
+<div>
+    <mat-toolbar color="primary" class="toolbar-primary">
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav['toggle']();open=!open">
+          <mat-icon>{{(open ? 'arrow_back' : 'menu')}}</mat-icon>
+        </button>
+        <div class="companyName a-link-business me-lg-5" routerLink="/dashboard">
+          <h5>Manager</h5>
+        </div>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>person</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-toolbar color="accent" class="toolbar-secondary">
+        <div class="sub-toolbar">
+          <a mat-button [routerLink]="'/business'"> Meus lançamentos </a>
+        </div>
+    </mat-toolbar>
+    <mat-sidenav-container id="nav">
+      <mat-sidenav class="sidenav-menu" color="primary" #sidenav mode="over" opened="false">
+        <mat-nav-list>
+          <div class="mat-card-header-text m-3 d-grid">
+            <span class="mat-card-title">
+              Olá,
+            </span>
+            <span class="mat-card-subtitle">Tenha um excelente dia!</span>
+          </div>
+          <div class="mt-2 mb-5">
+            <div class="d-flex align-items-center">
+              <a mat-list-item (click)="sidenav['toggle']();open=!open" routerLink="dashboard">
+                <mat-icon class="m-2">dashboard</mat-icon>
+                Dashboard
+              </a>
+            </div>
+            <div class="d-flex align-items-center">
+              <a mat-list-item (click)="sidenav['toggle']();open=!open" routerLink="business">
+                <mat-icon class="m-2">receipt</mat-icon>
+                Meus lançamentos
+              </a>
+            </div>
+            <hr>
+            <div class="d-flex align-items-center">
+              <a mat-list-item (click)="sidenav['toggle']()">
+                <mat-icon class="m-2">logout</mat-icon>
+                Sair
+              </a>
+            </div>
+          </div>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div class="container-fluid container-aplicacao">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

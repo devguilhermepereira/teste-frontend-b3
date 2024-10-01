@@ -1,0 +1,14 @@
+{
+    "contas": [
+        {
+            "title": "conta 1",
+            "value": "50000",
+            "type": "E"
+        },
+        {
+            "title": "conta 2",
+            "value": "10000",
+            "type": "S"
+        }
+    ]
+}
